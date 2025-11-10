@@ -98,7 +98,6 @@ number      {digit}+
 \"(\\.|[^\\"])*\"  { yylval.id = strdup(yytext); return STRINGCONST; }
 
 {id} {
-    // If type is declared, add symbol with type; else increment frequency if already exists
     if (strlen(current_type) > 0)
         add_symbol(yytext, current_type, line_number);
     else
